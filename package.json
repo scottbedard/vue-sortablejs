@@ -1,0 +1,11 @@
+{
+  "name": "@bedard/vue-sortablejs",
+  "version": "0.1.0",
+  "description": "Sortablejs behavior for Vue 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Bedard",
+  "license": "MIT"
+}
