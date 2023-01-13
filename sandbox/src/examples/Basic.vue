@@ -34,6 +34,6 @@ const {
   sortKey,
 } = useSortable(container, {
   animation: 200,
-  onSort: e => sort(source, e),
+  onSort: (e: any) => sort(source, e),
 })
 </script>
