@@ -61,7 +61,6 @@ export function useSortable(
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
         ...opts,
-        animate: 500,
         onSort(e: SortableEvent) {
           sortKey.value = key()
 
