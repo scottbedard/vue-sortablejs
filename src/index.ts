@@ -10,7 +10,10 @@ const noop = () => {}
 /**
  * Sortable dom elements
  */
-export function useSortable(containerEl: Ref<HTMLElement | HTMLElement[] | undefined>, options: Sortable.Options = {}) {
+export function useSortable(
+  containerEl: Ref<HTMLElement | HTMLElement[] | undefined>,
+  options: Sortable.Options = {},
+) {
   const opts: Sortable.Options = { onSort: noop, ...options }
 
   /**
@@ -33,21 +36,6 @@ export function useSortable(containerEl: Ref<HTMLElement | HTMLElement[] | undef
     
     return Array.isArray(containerEl.value) ? containerEl.value : [containerEl.value]
   })
-
-  /**
-   * Attach sortable ids
-   */
-  const attachSortableIds = () => {
-    containerEls.value.forEach(el => {
-      el.dataset.sort = ''
-
-      const children = Array.from(el.children) as HTMLElement[]
-
-      children.forEach((child, index) => {
-        child.dataset.sortIndex = index.toString()
-      })
-    })
-  }
 
   /**
    * Sort array
@@ -73,6 +61,7 @@ export function useSortable(containerEl: Ref<HTMLElement | HTMLElement[] | undef
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
         ...opts,
+        animate: 500,
         onSort(e: SortableEvent) {
           sortKey.value = key()
 
@@ -100,11 +89,7 @@ export function useSortable(containerEl: Ref<HTMLElement | HTMLElement[] | undef
    */
   watch(sortKey, createSortableInstances)
 
-  onMounted(() => {
-    attachSortableIds()
-
-    createSortableInstances()
-  })
+  onMounted(createSortableInstances)
 
   onUnmounted(destroySortableInstances)
 
