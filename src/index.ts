@@ -51,6 +51,15 @@ export function useSortable(
   }
 
   /**
+   * Destroy sortable instances
+   */
+  const destroySortableInstances = () => {
+    sortableInstances.forEach(instance => instance.destroy())
+
+    sortableInstances.length = 0
+  }
+
+  /**
    * Create sortable instances
    */
   const createSortableInstances = async () => {
@@ -72,15 +81,6 @@ export function useSortable(
 
       sortableInstances.push(instance)
     })
-  }
-
-  /**
-   * Destroy sortable instances
-   */
-  const destroySortableInstances = () => {
-    sortableInstances.forEach(instance => instance.destroy())
-
-    sortableInstances.length = 0
   }
 
   /**
