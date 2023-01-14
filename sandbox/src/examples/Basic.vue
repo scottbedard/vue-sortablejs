@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useSortable } from '../../../src/index'
+import { useSortable } from '@bedard/vue-sortablejs'
 
 const container = ref<HTMLElement>()
 
@@ -34,6 +34,7 @@ const {
   sortKey,
 } = useSortable(container, {
   animation: 200,
+  ghostClass: 'opacity-50',
   onSort: (e: any) => sort(source, e),
 })
 </script>
