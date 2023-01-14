@@ -8,7 +8,8 @@ import typescript from '@rollup/plugin-typescript'
 
 export default defineConfig({
   external: [
-    ...Object.keys(pkg.dependencies || {}),
+    'sortablejs',
+    'vue',
   ],
   input: 'src/index.ts',
   output: [
