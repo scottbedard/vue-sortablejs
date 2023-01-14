@@ -1,5 +1,7 @@
 # `@bedard/vue-sortablejs`
 
+[![License](https://img.shields.io/github/license/scottbedard/vue-sortablejs?color=blue)](https://github.com/scottbedard/vue-sortablejs/blob/main/LICENSE)
+
 A minimalist interface for [Sortablejs](https://sortablejs.github.io/Sortable/), no components required.
 
 ## Installation
@@ -18,7 +20,7 @@ Install via cdn
 
 ## Basic usage
 
-This behavior manages an array connected to a `v-for` of elements
+This behavior manages an array connected to a `v-for` loop of elements
 
 ```vue
 <template>
