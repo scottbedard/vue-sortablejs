@@ -31,7 +31,7 @@ This behavior manages an array connected to a `v-for` loop of elements
       {{ item }}
     </div>
   </div>
-</teamplate>
+</template>
 
 <script setup>
 import { ref } from 'vue'
