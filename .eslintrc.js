@@ -6,6 +6,10 @@ module.exports = {
   extends: [
     'airbnb-typescript/base',
   ],
+  ignorePatterns: [
+    'dist',
+    'sandbox',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -21,6 +25,7 @@ module.exports = {
     'arrow-parens': ['error', 'as-needed'],
     'class-methods-use-this': 0,
     'import/extensions': 0,
+    'import/no-extraneous-dependencies': 0,
     'import/order': 0,
     'import/prefer-default-export': 0,
     'max-len': 0,

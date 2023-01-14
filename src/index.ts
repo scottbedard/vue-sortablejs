@@ -5,8 +5,6 @@ let id = 0
 
 const key = () => `sort-${id++}`
 
-const noop = () => {}
-
 /**
  * Sortable dom elements
  */
@@ -14,8 +12,6 @@ export function useSortable(
   containerEl: Ref<HTMLElement | HTMLElement[] | undefined>,
   options: Sortable.Options = {},
 ) {
-  const opts: Sortable.Options = { onSort: noop, ...options }
-
   /**
    * Sortable instances
    */
@@ -69,12 +65,12 @@ export function useSortable(
 
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
-        ...opts,
+        ...options,
         onSort(e: SortableEvent) {
           sortKey.value = key()
-
-          if (opts.onSort) {
-            opts.onSort(e)
+          
+          if (options.onSort) {
+            options.onSort(e)
           }
         },
       })

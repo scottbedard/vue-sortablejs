@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// import typescript from '@rollup/plugin-typescript';
 import { defineConfig } from 'rollup'
 import { terser } from 'rollup-plugin-terser'
 import del from 'rollup-plugin-delete'
+import cleanup from 'rollup-plugin-cleanup'
 import eslint from '@rbnlffl/rollup-plugin-eslint'
 import pkg from './package.json'
-import ts from 'rollup-plugin-ts'
+import typescript from '@rollup/plugin-typescript'
 
 export default defineConfig({
   external: [
@@ -23,8 +22,7 @@ export default defineConfig({
     },
     {
       file: pkg.unpkg,
-      format: 'iife',
-      name: 'VueSortablejs',
+      format: 'es',
       plugins: [
         terser(),
       ],
@@ -34,6 +32,7 @@ export default defineConfig({
   plugins: [
     del({ targets: 'dist/*' }),
     eslint(),
-    ts(),
+    typescript(),
+    cleanup(),
   ],
 })
