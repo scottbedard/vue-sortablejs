@@ -16,8 +16,6 @@
         {{ item }}
       </div>
     </div>
-
-    <pre class="mt-6 text-sm">{{ { source } }}</pre>
   </div>
 </template>
 
