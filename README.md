@@ -4,6 +4,8 @@
 
 A minimalist interface for [Sortablejs](https://sortablejs.github.io/Sortable/), no components required.
 
+> **Warning:** This repo is a work in progress, give it time.
+
 ## Installation
 
 Install via npm
@@ -53,6 +55,6 @@ Here is a quick breakdown of what's happening
 
 ## License
 
-[MIT](https://github.com/scottbedard/twister/blob/master/LICENSE)
+[MIT](https://github.com/scottbedard/vue-sortablejs/blob/master/LICENSE)
 
 Copyright (c) 2023-present, Scott Bedard
