@@ -1,10 +1,14 @@
 <template>
-  <div>
-    <h1 class="font-bold font-mono my-6 text-4xl">
-      @bedard/vue-sortable
+  <div class="gap-4 grid pt-3">
+    <h1 class="font-bold font-mono text-3xl">
+      <a
+        class="hover:text-blue-500"
+        href="https://github.com/scottbedard/vue-sortablejs">
+        @bedard/vue-sortable
+      </a>
     </h1>
 
-    <div class="border-t border-gray-600 py-6">
+    <div>
       <Basic />
     </div>
   </div>

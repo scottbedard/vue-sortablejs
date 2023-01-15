@@ -1,38 +1,46 @@
+<style scoped>
+.container {
+  @apply gap-2 grid max-w-sm;
+}
+
+.box {
+  @apply bg-white border border-gray-200 h-12 flex items-center px-4 text-sm tracking-wider;
+}
+
+.ghost {
+  @apply bg-blue-200 opacity-30;
+}
+</style>
+
 <template>
-  <div>
+  <Example title="Simple list">
     <div
+      class="container"
       ref="container"
-      class="flex gap-6"
       :key="sortKey">
       <div
-        v-for="item in source"
-        :class="['border-2 border-dashed border-gray-400 flex h-16 items-center justify-center text-white text-xl w-16', {
-          'bg-red-300 border-red-400': item === 1,
-          'bg-orange-300 border-orange-400': item === 2,
-          'bg-blue-300 border-blue-400': item === 3,
-          'bg-green-300 border-green-400': item === 4,
-          'bg-purple-300 border-purple-400': item === 5,
-        }]">
-        {{ item }}
-      </div>
+        v-for="item in items"
+        v-text="`Item #${item}`"
+        class="box" />
     </div>
-  </div>
+  </Example>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useSortable } from '@bedard/vue-sortablejs'
+import Example from '@/components/Example.vue'
 
 const container = ref<HTMLElement>()
 
-const source = ref([1, 2, 3, 4, 5])
+const items = ref([1, 2, 3, 4, 5])
 
 const {
   sort,
   sortKey,
 } = useSortable(container, {
   animation: 200,
-  ghostClass: 'opacity-50',
-  onSort: (e: any) => sort(source, e),
+  ghostClass: 'ghost',
+  onSort: (e: any) => sort(items, e),
 })
 </script>
