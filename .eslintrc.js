@@ -3,6 +3,7 @@ module.exports = {
     'airbnb-typescript/base',
   ],
   ignorePatterns: [
+    '.eslintrc.js',
     'dist',
     'rollup.config.ts',
     'sandbox',
