@@ -1,5 +1,5 @@
 <template>
-  <div class="gap-4 grid pt-3">
+  <div class="gap-6 grid pt-4">
     <h1 class="font-bold font-mono text-3xl">
       <a
         class="hover:text-blue-500"
@@ -8,12 +8,15 @@
       </a>
     </h1>
 
-    <div>
-      <Basic />
+    <div class="gap-6 grid">
+      <List />
+
+      <Grid />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Basic from './examples/Basic.vue'
+import List from './examples/List.vue'
+import Grid from './examples/Grid.vue'
 </script>

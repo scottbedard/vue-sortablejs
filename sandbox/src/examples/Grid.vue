@@ -1,10 +1,10 @@
 <style scoped>
 .container {
-  @apply gap-2 grid max-w-sm;
+  @apply gap-2 flex flex-wrap max-w-lg;
 }
 
 .box {
-  @apply bg-white border border-gray-200 h-12 flex items-center px-4 text-sm tracking-wider;
+  @apply aspect-square bg-white border border-gray-200 flex items-center justify-center text-center text-sm tracking-wider w-24;
 }
 
 .ghost {
@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <Example title="Simple list">
+  <Example title="Grid">
     <div
       class="container"
       ref="container"
@@ -33,7 +33,7 @@ import Example from '@/components/Example.vue'
 
 const container = ref<HTMLElement>()
 
-const items = ref([1, 2, 3, 4, 5])
+const items = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
 
 const {
   sort,
