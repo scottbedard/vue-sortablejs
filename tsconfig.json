@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "baseUrl": "src",
+    "declaration": true,
+    "declarationDir": "./dts",
+    "esModuleInterop": true,
+    "module": "es6",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "strict": true,
     "target": "ESNext"
   },
   "exclude": [
+    "scripts",
     "sandbox"
   ]
 }
