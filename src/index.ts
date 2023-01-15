@@ -95,5 +95,3 @@ export function useSortable(
     sortKey,
   }
 }
-
-export const version = 'x.y.z'

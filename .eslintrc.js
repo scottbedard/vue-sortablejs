@@ -1,13 +1,10 @@
 module.exports = {
-  env: {
-    // node: true,
-    // 'jest/globals': true,
-  },
   extends: [
     'airbnb-typescript/base',
   ],
   ignorePatterns: [
     'dist',
+    'rollup.config.ts',
     'sandbox',
     'scripts',
   ],
@@ -17,7 +14,6 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    // 'jest',
   ],
   root: true,
   rules: {
