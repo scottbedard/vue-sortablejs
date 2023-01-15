@@ -9,6 +9,7 @@ module.exports = {
   ignorePatterns: [
     'dist',
     'sandbox',
+    'scripts',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
