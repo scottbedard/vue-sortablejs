@@ -6,6 +6,8 @@
 
 A minimalist interface for [Sortablejs](https://sortablejs.github.io/Sortable/), no components required.
 
+[View live sandbox →](https://vue-sortablejs.scottbedard.net)
+
 ## Installation
 
 Install via npm
