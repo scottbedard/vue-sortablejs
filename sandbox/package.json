@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@bedard/vue-sortablejs": "^0.0.7",
     "sortablejs": "^1.15.0",
     "vue": "^3.2.45"
   },

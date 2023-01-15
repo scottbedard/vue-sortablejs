@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "declaration": true,
-    "declarationDir": "./dts",
+    "declarationDir": "types",
     "esModuleInterop": true,
     "module": "es6",
     "moduleResolution": "node",
@@ -12,7 +12,8 @@
     "target": "ESNext"
   },
   "exclude": [
-    "scripts",
-    "sandbox"
+    "rollup.config.ts",
+    "sandbox",
+    "scripts"
   ]
 }

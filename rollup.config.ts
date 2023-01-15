@@ -1,6 +1,5 @@
 import { defineConfig } from 'rollup'
 import { terser } from 'rollup-plugin-terser'
-import del from 'rollup-plugin-delete'
 import cleanup from 'rollup-plugin-cleanup'
 import eslint from '@rbnlffl/rollup-plugin-eslint'
 import pkg from './package.json'
@@ -31,7 +30,6 @@ export default defineConfig({
     },
   ],
   plugins: [
-    del({ targets: 'dist/*' }),
     eslint(),
     typescript(),
     cleanup(),
