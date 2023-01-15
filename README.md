@@ -1,6 +1,7 @@
 # `@bedard/vue-sortablejs`
 
 [![NPM](https://img.shields.io/npm/v/@bedard/vue-sortablejs)](https://www.npmjs.com/package/@bedard/vue-sortablejs)
+[![Bundle size](https://img.shields.io/bundlephobia/minzip/@bedard/vue-sortablejs?label=gzipped)](https://bundlephobia.com/result?p=@bedard/vue-sortablejs)
 [![License](https://img.shields.io/github/license/scottbedard/vue-sortablejs?color=blue)](https://github.com/scottbedard/vue-sortablejs/blob/main/LICENSE)
 
 A minimalist interface for [Sortablejs](https://sortablejs.github.io/Sortable/), no components required.
