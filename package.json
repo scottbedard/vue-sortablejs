@@ -23,10 +23,7 @@
     "build": "rollup -c",
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint . --ext .ts",
-    "publish:ci": "ts-node ./scripts/publish.ts",
-    "test:clear": "jest --clearCache",
-    "test:watch": "jest --coverage --watch --verbose=false",
-    "test": "jest --coverage"
+    "publish:ci": "ts-node ./scripts/publish.ts"
   },
   "unpkg": "dist/index.esm.min.js",
   "version": "0.0.8"
