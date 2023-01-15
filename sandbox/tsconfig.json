@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -9,7 +10,7 @@
     "noEmit": true,
     "noImplicitAny": false,
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["*"],
       "@bedard/vue-sortablejs": [".."]
     },
     "resolveJsonModule": true,
