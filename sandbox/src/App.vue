@@ -4,7 +4,7 @@
       <a
         class="hover:text-blue-500"
         href="https://github.com/scottbedard/vue-sortablejs">
-        @bedard/vue-sortable
+        @bedard/vue-sortablejs
       </a>
     </h1>
 
