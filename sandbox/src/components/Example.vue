@@ -1,5 +1,5 @@
 <template>
-  <div class="gap-2 grid">
+  <div class="border-t-2 border-gray-300 gap-2 grid py-6">
     <h3>
       <a
         v-text="title"
