@@ -1,4 +1,4 @@
-import { computed, nextTick, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 import Sortable, { SortableEvent } from 'sortablejs'
 
 let id = 0
