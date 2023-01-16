@@ -3,7 +3,7 @@
     <h3>
       <a
         v-text="title"
-        class="font-bold text-xl"
+        class="font-bold text-xl tracking-wider"
         :name="kebabCase(title)" />
     </h3>
 
