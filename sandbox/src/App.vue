@@ -1,5 +1,5 @@
 <template>
-  <div class="gap-6 grid pt-4">
+  <div class="gap-6 grid py-4">
     <h1 class="font-bold font-mono text-3xl">
       <a
         class="hover:text-blue-500"
@@ -12,11 +12,14 @@
       <List />
 
       <Grid />
+
+      <Handle />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import List from './examples/List.vue'
 import Grid from './examples/Grid.vue'
+import Handle from './examples/Handle.vue'
+import List from './examples/List.vue'
 </script>
