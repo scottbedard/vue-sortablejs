@@ -18,9 +18,9 @@
     <div class="gap-6 grid">
       <List />
 
-      <Grid />
-
       <Handle />
+
+      <Grid />
     </div>
   </div>
 </template>
