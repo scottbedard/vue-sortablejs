@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <Example title="Simple list">
+  <Example :items="items" title="Simple list">
     <div
       class="container"
       ref="container"

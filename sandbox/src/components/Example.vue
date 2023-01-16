@@ -1,5 +1,7 @@
 <template>
-  <div class="border-t-2 border-gray-300 gap-2 grid py-6">
+  <div
+    class="border-t-2 border-gray-300 gap-2 grid py-6"
+    :data-items="JSON.stringify(items)">
     <h3>
       <a
         v-text="title"
@@ -17,6 +19,7 @@
 import { kebabCase } from 'lodash-es'
 
 defineProps<{
+  items: any[]
   title: string
 }>()
 </script>

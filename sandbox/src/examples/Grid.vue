@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <Example title="Grid">
+  <Example :items="items" title="Grid">
     <div
       class="container"
       ref="container"

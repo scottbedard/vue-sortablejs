@@ -1,4 +1,4 @@
-import { computed, nextTick, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 import Sortable, { SortableEvent } from 'sortablejs'
 
 let id = 0
@@ -60,8 +60,6 @@ export function useSortable(
    */
   const createSortableInstances = async () => {
     destroySortableInstances()
-
-    await nextTick()
 
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
