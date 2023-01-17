@@ -23,6 +23,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint . --ext .ts"
   },
+  "types": "dist/src/index.d.ts",
   "unpkg": "dist/index.esm.min.js",
   "version": "0.1.0"
 }

@@ -3,10 +3,10 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "declaration": true,
-    "declarationDir": ".",
     "esModuleInterop": true,
     "module": "es6",
     "moduleResolution": "node",
+    "outDir": ".",
     "resolveJsonModule": true,
     "strict": true,
     "target": "ESNext"
