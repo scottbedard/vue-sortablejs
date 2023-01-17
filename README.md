@@ -74,7 +74,7 @@ const first = useSortable(firstContainer, {
 const second = useSortable(secondContainer, {
   group: 'shared',
   onAdd: e => transfer(from, to, e),
-  onSort: e => sort(firstItems, e),
+  onSort: e => sort(secondItems, e),
 })
 ```
 
