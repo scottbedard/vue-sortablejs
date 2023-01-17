@@ -60,7 +60,7 @@ Here is a breakdown of what's happening
 
 ### Shared lists
 
-To move elements from one array to another, a `transfer` util is provided
+Use `transfer` to move items from one array to another
 
 ```js
 import { sort, transfer, useSortable } from '@bedard/vue-sortablejs'
