@@ -19,6 +19,7 @@
     "vue": "^2.7.0 || ^3.0.0"
   },
   "scripts": {
+    "build:sandbox": "npm run build --prefix sandbox",
     "build": "rollup -c",
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint . --ext .ts"
