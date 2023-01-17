@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <Example :debug="debug" title="Shared list">
+  <Example :debug="debug" :id="id" title="Shared list">
     <div class="gap-6 grid grid-cols-2 max-w-3xl">
       <div
         class="container"
@@ -48,6 +48,10 @@
 import { computed, ref } from 'vue'
 import { sort, transfer, useSortable } from '@bedard/vue-sortablejs'
 import Example from '@/components/Example.vue'
+
+defineProps<{
+  id: string
+}>()
 
 const firstContainer = ref<HTMLElement>()
 

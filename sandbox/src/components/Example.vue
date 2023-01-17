@@ -6,7 +6,7 @@
       <a
         v-text="title"
         class="leading-none font-bold text-xl tracking-wider"
-        :name="kebabCase(title)" />
+        :href="`/?example=${id}`" />
     </h3>
 
     <div>
@@ -20,6 +20,7 @@ import { kebabCase } from 'lodash-es'
 
 defineProps<{
   debug?: any
+  id: string
   title: string
 }>()
 </script>

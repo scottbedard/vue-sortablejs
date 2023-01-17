@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <Example :debug="items" title="List with handles">
+  <Example :debug="items" :id="id" title="List with handles">
     <div
       class="container"
       ref="container"
@@ -35,6 +35,10 @@ import { ref } from 'vue'
 import { sort, useSortable } from '@bedard/vue-sortablejs'
 import Example from '@/components/Example.vue'
 import MoveVerticalIcon from '@/components/MoveVerticalIcon.vue'
+
+defineProps<{
+  id: string
+}>()
 
 const container = ref<HTMLElement>()
 
