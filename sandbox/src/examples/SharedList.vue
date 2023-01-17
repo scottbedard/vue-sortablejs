@@ -74,7 +74,7 @@ const { sortKey: firstSortKey } = useSortable(firstContainer, {
   animation: 200,
   ghostClass: 'ghost',
   group: 'shared',
-  onAdd: e => transfer(secondItems, firstItems, e),
+  onAdd: e => transfer(firstItems, secondItems, e),
   onSort: e => sort(firstItems, e),
 })
 
@@ -82,7 +82,7 @@ const { sortKey: secondSortKey } = useSortable(secondContainer, {
   animation: 200,
   ghostClass: 'ghost',
   group: 'shared',
-  onAdd: e => transfer(firstItems, secondItems, e),
+  onAdd: e => transfer(secondItems, firstItems, e),
   onSort: e => sort(secondItems, e),
 })
 </script>
