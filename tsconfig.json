@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": ".",
     "esModuleInterop": true,
     "module": "es6",
     "moduleResolution": "node",

@@ -21,6 +21,8 @@
       <Handle />
 
       <Grid />
+
+      <SharedList />
     </div>
   </div>
 </template>
@@ -29,4 +31,5 @@
 import Grid from './examples/Grid.vue'
 import Handle from './examples/Handle.vue'
 import List from './examples/List.vue'
+import SharedList from './examples/SharedList.vue'
 </script>

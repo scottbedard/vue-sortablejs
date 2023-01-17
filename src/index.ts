@@ -1,9 +1,39 @@
-import { computed, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 import Sortable, { SortableEvent } from 'sortablejs'
 
 let id = 0
 
 const key = () => `sort-${id++}`
+
+/**
+ * Sort array
+ */
+export function sort(source: Ref<any[]>, e: SortableEvent) {
+  if (typeof e.newIndex === 'number' && typeof e.oldIndex === 'number' && e.from === e.to) {
+    const arr = source.value?.slice(0) ?? []
+
+    arr.splice(e.newIndex, 0, arr.splice(e.oldIndex, 1)[0])
+
+    source.value = arr
+  }
+}
+
+/**
+ * Transfer values from one array to another
+ */
+export function transfer(from: Ref<any[]>, to: Ref<any[]>, e: SortableEvent) {
+  if (e.from !== e.to && typeof e.newIndex === 'number' && typeof e.oldIndex === 'number') {
+    const item = from.value[e.oldIndex]
+    const toArr = to.value.slice(0)
+    const fromArr = from.value.slice(0)
+
+    toArr.splice(e.newIndex, 0, item)
+    fromArr.splice(e.oldIndex, 1)
+
+    to.value = toArr
+    from.value = fromArr   
+  }
+}
 
 /**
  * Sortable dom elements
@@ -34,19 +64,6 @@ export function useSortable(
   })
 
   /**
-   * Sort array
-   */
-  const sort = (source: Ref<any[]>, e: { newIndex?: number, oldIndex?: number }) => {
-    if (typeof e.newIndex === 'number' && typeof e.oldIndex === 'number') {
-      const arr = source.value?.slice(0) ?? []
-
-      arr.splice(e.newIndex, 0, arr.splice(e.oldIndex, 1)[0])
-
-      source.value = arr
-    }
-  }
-
-  /**
    * Destroy sortable instances
    */
   const destroySortableInstances = () => {
@@ -60,6 +77,8 @@ export function useSortable(
    */
   const createSortableInstances = async () => {
     destroySortableInstances()
+
+    await nextTick()
 
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
@@ -89,7 +108,6 @@ export function useSortable(
   return {
     createSortableInstances,
     destroySortableInstances,
-    sort,
     sortKey,
   }
 }

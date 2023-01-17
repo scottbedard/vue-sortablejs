@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <Example :items="items" title="Simple list">
+  <Example :debug="items" title="Simple list">
     <div
       class="container"
       ref="container"
@@ -28,17 +28,14 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useSortable } from '@bedard/vue-sortablejs'
+import { sort, useSortable } from '@bedard/vue-sortablejs'
 import Example from '@/components/Example.vue'
 
 const container = ref<HTMLElement>()
 
 const items = ref([1, 2, 3, 4, 5])
 
-const {
-  sort,
-  sortKey,
-} = useSortable(container, {
+const { sortKey } = useSortable(container, {
   animation: 200,
   ghostClass: 'ghost',
   onSort: (e: any) => sort(items, e),

@@ -10,8 +10,7 @@
     "noEmit": true,
     "noImplicitAny": false,
     "paths": {
-      "@/*": ["*"],
-      "@bedard/vue-sortablejs": [".."]
+      "@/*": ["*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
