@@ -25,12 +25,12 @@ Install via cdn
 
 ## Basic usage
 
-The `useSortable` behavior manages an array of item rendered via a `v-for` loop.
+Register `useSortable` with a container, and render the array with a `v-for` loop
 
 ```vue
 <template>
   <div ref="container" :key="sortKey">
-    <div v-for="item in source">
+    <div v-for="item in items">
       {{ item }}
     </div>
   </div>
@@ -38,23 +38,57 @@ The `useSortable` behavior manages an array of item rendered via a `v-for` loop.
 
 <script setup>
 import { ref } from 'vue'
-import { useSortable } from '@bedard/vue-sortablejs'
+import { sort, useSortable } from '@bedard/vue-sortablejs'
 
 const container = ref()
 
-const { sort, sortKey } = useSortable(container, {
-  onSort: e => sort(source, e),
+const { sortKey } = useSortable(container, {
+  onSort: e => sort(items, e),
 })
 </script>
 ```
 
-Here is a quick breakdown of what's happening
+Here is a breakdown of what's happening
 
-- an outer `container` ref is created to attach sortable instances to
-- a `sortKey` is attached to the container to keep the dom in sync with state
-- the `sort` helper is used to update state when `onSort` is fired
+1. an outer `container` ref is created
+2. a unique `sortKey` is attached to that container
+3. `sort` syncs the array when `onSort` fires
 
 [Click here for sortablejs options](https://github.com/SortableJS/Sortable#options)
+
+## Advanced usage
+
+### Shared lists
+
+To move elements from one array to another, a `transfer` util is provided
+
+```js
+import { sort, transfer, useSortable } from '@bedard/vue-sortablejs'
+
+const first = useSortable(firstContainer, {
+  group: 'shared',
+  onAdd: e => transfer(from, to, e),
+  onSort: e => sort(firstItems, e),
+})
+
+const second = useSortable(secondContainer, {
+  group: 'shared',
+  onAdd: e => transfer(from, to, e),
+  onSort: e => sort(firstItems, e),
+})
+```
+
+### Manual controls
+
+Sortable instance can be manually created and destroyed
+
+```js
+const { createSortableInstances, destroySortableInstances } = useSortable(container)
+
+createSortableInstances() // refresh instances and dom keys
+
+destroySortableInstances() // destroy instances
+```
 
 ## License
 
