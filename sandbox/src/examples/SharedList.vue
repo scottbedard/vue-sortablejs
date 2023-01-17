@@ -42,8 +42,6 @@
       </div>
     </div>
   </Example>
-
-  <pre>{{ debug }}</pre>
 </template>
 
 <script lang="ts" setup>
