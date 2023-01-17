@@ -19,7 +19,7 @@
       ref="container"
       :key="sortKey">
       <div v-for="item in items" class="box group">
-        <MoveVerticalIcon
+        <MoveIcon
           class="cursor-grab text-gray-500 group-hover:text-gray-600"
           stroke="2"
           data-handle />
@@ -34,7 +34,7 @@
 import { ref } from 'vue'
 import { sort, useSortable } from '@bedard/vue-sortablejs'
 import Example from '@/components/Example.vue'
-import MoveVerticalIcon from '@/components/MoveVerticalIcon.vue'
+import MoveIcon from '@/components/MoveIcon.vue'
 
 defineProps<{
   id: string

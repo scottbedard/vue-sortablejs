@@ -2,25 +2,36 @@
   <div
     class="border-t-2 border-gray-300 gap-2 grid py-8"
     :data-debug="JSON.stringify(debug)">
+
     <h3>
-      <a
+      <RouterLink
         v-text="title"
         class="leading-none font-bold text-xl tracking-wider"
-        :href="`/?example=${id}`" />
+        :to="`/?example=${id}`" />
     </h3>
 
-    <div>
+    <div class="mt-2">
       <slot />
+    </div>
+
+    <div
+      v-if="route.query.example"
+      class="text-gray-500 tracking-wider mt-6 text-gray-800">
+      <RouterLink to="/">
+        ← See all examples
+      </RouterLink>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { kebabCase } from 'lodash-es'
+import { RouterLink, useRoute } from 'vue-router'
 
 defineProps<{
   debug?: any
   id: string
   title: string
 }>()
+
+const route = useRoute()
 </script>

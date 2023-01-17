@@ -21,8 +21,8 @@ export function sort(source: Ref<any[]>, e: SortableEvent) {
 /**
  * Transfer values from one array to another
  */
-export function transfer(from: Ref<any[]>, to: Ref<any[]>, e: SortableEvent) {
-  if (e.from !== e.to && typeof e.newIndex === 'number' && typeof e.oldIndex === 'number') {
+export function transfer(to: Ref<any[]>, from: Ref<any[]>, e: SortableEvent) {
+  if (e.to !== e.from && typeof e.newIndex === 'number' && typeof e.oldIndex === 'number') {
     const item = from.value[e.oldIndex]
     const toArr = to.value.slice(0)
     const fromArr = from.value.slice(0)

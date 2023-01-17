@@ -3,7 +3,6 @@
     <div>
       <h1 class="font-bold font-mono text-2xl">
         <a
-          class="hover:text-blue-600 hover:underline"
           href="https://github.com/scottbedard/vue-sortablejs"
           target="_blank">
           @bedard/vue-sortablejs
@@ -11,7 +10,7 @@
       </h1>
 
       <div class="text-gray-800 tracking-wide">
-        A minimalist interface for <a class="hover:text-blue-600 hover:underline" href="https://sortablejs.github.io/Sortable/" target="_blank">Sortablejs</a>, no components required.
+        A minimalist interface for <a href="https://sortablejs.github.io/Sortable/" target="_blank">Sortablejs</a>, no components required.
       </div>
     </div>
 
@@ -26,10 +25,10 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, RouterLink } from 'vue-router'
 import Grid from './examples/Grid.vue'
 import Handle from './examples/Handle.vue'
-import List from './examples/List.vue'
+import SimpleList from './examples/SimpleList.vue'
 import SharedList from './examples/SharedList.vue'
 
 type Example = { component: any, id: string }
@@ -40,7 +39,7 @@ type Example = { component: any, id: string }
 const examples: Example[] = [
   {
     id: 'simple-list',
-    component: List,
+    component: SimpleList,
   },
   {
     id: 'handle',
