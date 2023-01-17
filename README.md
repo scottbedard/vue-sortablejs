@@ -67,13 +67,13 @@ import { sort, transfer, useSortable } from '@bedard/vue-sortablejs'
 
 const first = useSortable(firstContainer, {
   group: 'shared',
-  onAdd: e => transfer(to, from, e),
+  onAdd: e => transfer(from, to, e),
   onSort: e => sort(firstItems, e),
 })
 
 const second = useSortable(secondContainer, {
   group: 'shared',
-  onAdd: e => transfer(to, from, e),
+  onAdd: e => transfer(from, to, e),
   onSort: e => sort(firstItems, e),
 })
 ```
