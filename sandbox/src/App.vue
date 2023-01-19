@@ -2,9 +2,7 @@
   <div class="gap-6 grid py-6">
     <div>
       <h1 class="font-bold font-mono text-2xl">
-        <a
-          href="https://github.com/scottbedard/vue-sortablejs"
-          target="_blank">
+        <a href="https://github.com/scottbedard/vue-sortablejs">
           @bedard/vue-sortablejs
         </a>
       </h1>
