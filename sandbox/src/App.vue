@@ -1,8 +1,8 @@
 <template>
-  <div class="gap-6 grid py-6">
-    <div>
+  <div class="gap-6 grid">
+    <div class="gap-1 grid">
       <h1 class="font-bold font-mono text-2xl">
-        <a href="https://github.com/scottbedard/vue-sortablejs">
+        <a href="https://github.com/scottbedard/vue-lucide">
           @bedard/vue-sortablejs
         </a>
       </h1>
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="border-t border-gray-500">
       <Component
         v-for="example in visibleExamples"
         :id="example.id"

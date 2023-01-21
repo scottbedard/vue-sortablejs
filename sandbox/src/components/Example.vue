@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-t-2 border-gray-300 gap-2 grid py-8"
+    class="border-b border-gray-500 py-6 last:border-0"
     :data-debug="JSON.stringify(debug)">
 
     <h3>

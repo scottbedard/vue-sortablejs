@@ -21,7 +21,7 @@
       <div v-for="item in items" class="box group">
         <MoveIcon
           class="cursor-grab text-gray-500 group-hover:text-gray-600"
-          stroke="2"
+          size="20"
           data-handle />
 
         <div v-text="`Item ${item}`" />
@@ -31,10 +31,10 @@
 </template>
 
 <script lang="ts" setup>
+import { MoveIcon } from '@bedard/vue-lucide'
 import { ref } from 'vue'
 import { sort, useSortable } from '@bedard/vue-sortablejs'
 import Example from '@/components/Example.vue'
-import MoveIcon from '@/components/MoveIcon.vue'
 
 defineProps<{
   id: string
