@@ -2,7 +2,7 @@
   <div class="gap-6 grid">
     <div class="gap-1 grid">
       <h1 class="font-bold font-mono text-2xl">
-        <a href="https://github.com/scottbedard/vue-lucide">
+        <a href="https://github.com/scottbedard/vue-sortablejs">
           @bedard/vue-sortablejs
         </a>
       </h1>
