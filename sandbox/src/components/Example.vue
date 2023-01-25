@@ -16,9 +16,9 @@
 
     <div
       v-if="route.query.example"
-      class="text-gray-500 tracking-wider mt-6 text-gray-800">
+      class="text-gray-700 tracking-wider mt-6 text-gray-800">
       <RouterLink to="/">
-        ← See all examples
+        ← View all examples
       </RouterLink>
     </div>
   </div>

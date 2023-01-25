@@ -24,10 +24,11 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
+import Disabling from './examples/Disabling.vue'
 import Grid from './examples/Grid.vue'
 import Handle from './examples/Handle.vue'
-import SimpleList from './examples/SimpleList.vue'
 import SharedList from './examples/SharedList.vue'
+import SimpleList from './examples/SimpleList.vue'
 
 type Example = { component: any, id: string }
 
@@ -50,6 +51,10 @@ const examples: Example[] = [
   {
     id: 'shared-list',
     component: SharedList,
+  },
+  {
+    id: 'disabling',
+    component: Disabling,
   },
 ]
 
