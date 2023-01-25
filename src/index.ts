@@ -1,5 +1,7 @@
-import { computed, nextTick, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, Ref, ref, unref, watch } from 'vue'
 import Sortable, { SortableEvent } from 'sortablejs'
+
+type MaybeRef<T> = T | Ref<T>
 
 let id = 0
 
@@ -36,12 +38,24 @@ export function transfer(from: Ref<any[]>, to: Ref<any[]>, e: SortableEvent) {
 }
 
 /**
+ * Sortablejs options
+ */
+export type UseSortableOptions = Omit<Sortable.Options, 'sort'> & {
+  sort?: MaybeRef<boolean>
+}
+
+/**
  * Sortable dom elements
  */
 export function useSortable(
   containerEl: Ref<HTMLElement | HTMLElement[] | undefined>,
-  options: Sortable.Options = {},
+  options: UseSortableOptions = {},
 ) {
+  /**
+   * Enabled
+   */
+  const enabled = computed(() => unref(options.sort) === false ? false : true)
+
   /**
    * Sortable instances
    */
@@ -80,9 +94,12 @@ export function useSortable(
 
     await nextTick()
 
+    console.log(enabled.value)
+
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
         ...options,
+        sort: enabled.value,
         onSort(e: SortableEvent) {
           sortKey.value = key()
           
@@ -99,7 +116,7 @@ export function useSortable(
   /**
    * Manage sortable instances
    */
-  watch(sortKey, createSortableInstances)
+  watch([enabled, sortKey], createSortableInstances)
 
   onMounted(createSortableInstances)
 

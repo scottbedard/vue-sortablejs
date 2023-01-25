@@ -14,6 +14,13 @@
 
 <template>
   <Example :debug="items" :id="id" title="Simple list">
+
+    <div class="mb-3">
+      <Checkbox
+        v-model="disabled"
+        label="Disabled" />
+    </div>
+
     <div
       class="container"
       ref="container"
@@ -27,13 +34,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { sort, useSortable } from '@bedard/vue-sortablejs'
+import Checkbox from '@/components/Checkbox.vue'
 import Example from '@/components/Example.vue'
 
 defineProps<{
   id: string
 }>()
+
+const disabled = ref(false)
 
 const container = ref<HTMLElement>()
 
@@ -43,5 +53,6 @@ const { sortKey } = useSortable(container, {
   animation: 200,
   ghostClass: 'ghost',
   onSort: (e: any) => sort(items, e),
+  sort: computed(() => !disabled.value),
 })
 </script>

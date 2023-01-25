@@ -8,7 +8,7 @@
       :data-checkbox="dataCheckbox"
       @click="toggle">
       <div
-        class="bg-white border border-gray-300 flex items-center group-input-container justify-center h-6 rounded transform translate-y-px w-6 group-hover:border-gray-400"
+        class="bg-white border border-gray-200 flex items-center group-input-container justify-center h-6 rounded transform translate-y-px w-6 group-hover:border-gray-400"
         ref="target"
         role="checkbox"
         :aria-checked="modelValue ? 'true' : 'false'"
@@ -50,12 +50,6 @@
         <slot>{{ label }}</slot>
       </div>
     </div>
-
-    <div
-      v-if="sublabel || $slots.sublabel"
-      class="pl-8 text-sm">
-      <slot name="sublabel">{{ sublabel }}</slot>
-    </div>
   </div>
 </template>
 
@@ -78,7 +72,6 @@ const props = defineProps<{
   label?: string
   modelValue?: boolean
   required?: boolean
-  sublabel?: string
 }>()
 
 /**
