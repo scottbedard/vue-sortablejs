@@ -58,7 +58,7 @@ Here is a breakdown of what's happening
 
 ### Reactivity
 
-All options supported reactivity, and Sortablejs instances are refreshed on change.
+All options support reactivity, and Sortablejs instances are refreshed on change.
 
 ```js
 const disabled = ref(false)
