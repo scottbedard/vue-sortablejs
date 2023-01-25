@@ -1,11 +1,18 @@
 import { computed, nextTick, onMounted, onUnmounted, Ref, ref, unref, watch } from 'vue'
-import Sortable, { SortableEvent } from 'sortablejs'
+import Sortable, { SortableEvent, SortableOptions } from 'sortablejs'
 
 type MaybeRef<T> = T | Ref<T>
 
 let id = 0
 
 const key = () => `sort-${id++}`
+
+/**
+ * Sortable options
+ */
+type UseSortableOptions = {
+  [K in keyof SortableOptions]: MaybeRef<SortableOptions[K]>
+}
 
 /**
  * Sort array
@@ -38,23 +45,19 @@ export function transfer(from: Ref<any[]>, to: Ref<any[]>, e: SortableEvent) {
 }
 
 /**
- * Sortablejs options
- */
-export type UseSortableOptions = Omit<Sortable.Options, 'sort'> & {
-  sort?: MaybeRef<boolean>
-}
-
-/**
  * Sortable dom elements
  */
 export function useSortable(
   containerEl: Ref<HTMLElement | HTMLElement[] | undefined>,
   options: UseSortableOptions = {},
 ) {
-  /**
-   * Enabled
-   */
-  const enabled = computed(() => unref(options.sort) === false ? false : true)
+  const normalizedOptions = computed(() => {
+    return Object.entries(options).reduce<SortableOptions>((acc, [k, v]) => {
+      (acc as any)[k] = unref(v)
+
+      return acc
+    }, {})
+  })
 
   /**
    * Sortable instances
@@ -78,6 +81,13 @@ export function useSortable(
   })
 
   /**
+   * Refresh
+   */
+  const refresh = () => {
+    sortKey.value = key()
+  }
+
+  /**
    * Destroy sortable instances
    */
   const destroySortableInstances = () => {
@@ -94,17 +104,14 @@ export function useSortable(
 
     await nextTick()
 
-    console.log(enabled.value)
-
     containerEls.value.forEach(el => {
       const instance = Sortable.create(el, {
-        ...options,
-        sort: enabled.value,
+        ...normalizedOptions.value,
         onSort(e: SortableEvent) {
-          sortKey.value = key()
+          refresh()
           
           if (options.onSort) {
-            options.onSort(e)
+            unref(options.onSort)?.(e)
           }
         },
       })
@@ -116,7 +123,9 @@ export function useSortable(
   /**
    * Manage sortable instances
    */
-  watch([enabled, sortKey], createSortableInstances)
+  watch(normalizedOptions, refresh)
+
+  watch(sortKey, createSortableInstances)
 
   onMounted(createSortableInstances)
 

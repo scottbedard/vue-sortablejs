@@ -51,8 +51,8 @@ const items = ref([1, 2, 3, 4, 5])
 
 const { sortKey } = useSortable(container, {
   animation: 200,
+  disabled,
   ghostClass: 'ghost',
   onSort: (e: any) => sort(items, e),
-  sort: computed(() => !disabled.value),
 })
 </script>
