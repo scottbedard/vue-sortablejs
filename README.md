@@ -58,6 +58,18 @@ Here is a breakdown of what's happening
 
 ## Advanced usage
 
+### Disabling
+
+Set `sort` to `false` to disable sorting
+
+```js
+const enabled = ref(false)
+
+const { sort } = useSortable(container, {
+  sort: enabled,
+})
+```
+
 ### Shared lists
 
 Use `transfer` to move items from one array to another
