@@ -23,7 +23,7 @@ Install via cdn
 <script src="https://unpkg.com/@bedard/vue-sortablejs" type="module"></script>
 ```
 
-## Basic usage
+## Basic use
 
 Register `useSortable` with a container, and render the array with a `v-for` loop
 
@@ -52,23 +52,23 @@ Here is a breakdown of what's happening
 
 1. an outer `container` ref is created
 2. a unique `sortKey` is attached to that container
-3. `sort` syncs the array when `onSort` fires
+3. the `sort` helper syncs state when `onSort` fires
 
-[Click here for sortablejs options](https://github.com/SortableJS/Sortable#options)
+## Advanced use
 
-## Advanced usage
+### Reactivity
 
-### Disabling
-
-Set `sort` to `false` to disable sorting
+All options are supported reactivity. Sortablejs instances are refreshed when options changes.
 
 ```js
-const enabled = ref(false)
+const disabled = ref(false)
 
-const { sort } = useSortable(container, {
-  sort: enabled,
+const sortable = useSortable(container, {
+  disabled,
 })
 ```
+
+[View all available options →](https://github.com/SortableJS/Sortable#options)
 
 ### Shared lists
 
